@@ -1,0 +1,150 @@
+(defwindow topbar
+  :monitor 0
+  :stacking "bottom"
+  :exclusive true
+  :reserve (struts
+    :distance "00px"
+    :side "top"
+  )
+  :windowtype "dock"
+  :wm-ignore false
+  :geometry (geometry
+    :x "0%"
+    :y "0.5%"
+    :width "99%"
+    :height "2.5%"
+    :anchor "top center"
+  )
+  (topbar_layout)
+)
+
+;; Local date widget for background decoration
+(defwindow time_widget
+  :monitor 0
+  :stacking "bottom"
+  :exclusive true
+  :windowtype "normal"
+  :wm-ignore false
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "25%"
+    :height "25%"
+    :anchor "bottom left"
+  )
+  (time_box)
+)
+
+;; Topbar layout, split into three sections
+(defwidget topbar_layout []
+  (centerbox
+    :orientation "h"
+    (topbar_left)
+    (topbar_center)
+    (topbar_right)
+  )
+)
+
+;; Left topbar section
+(defwidget topbar_left []
+  (box
+    :space-evenly false
+    :spacing 15
+    (label
+      :class "pill"
+      :text "hi"
+    )
+  )
+)
+
+;; Center topbar section
+(defwidget topbar_center []
+  (box
+    :halign "center"
+    :space-evenly false
+    :spacing 15
+    (time_topbar)
+  )
+)
+
+;; Right topbar section
+(defwidget topbar_right []
+  (box
+    :halign "end"
+    :space-evenly false
+    :spacing 15
+    (updates)
+    (label
+      :class "pill"
+      :text "hi"
+    )
+  )
+)
+
+;; Available yay updates widget
+(defwidget updates []
+  (eventbox
+    :cursor "pointer"
+    :onclick "kitty yay &"
+    (box
+      :class "pill"
+      :orientation "h"
+      :space-evenly false
+      :spacing 8
+      :visible {update_count > 0} ;; Hidden if count is 0
+      (label
+        :class "updates-icon"
+        :text "󰏕")
+      (label
+        :class "updates-text"
+        :text "${update_count}"
+      )
+    )
+  )
+)
+
+;; Local time widget for topbar
+(defwidget time_topbar []
+  (box
+    :class "pill"
+    (label
+      :class "text"
+      :text time_poll
+    )
+  )
+)
+
+;; Local date widget for background decoration
+(defwidget time_box []
+  (box
+    :orientation "v"
+    :space-evenly false
+    (label
+      :class "time-box"
+      :text time_poll
+    )
+    (label
+      :class "date-text"
+      :text date_poll
+    )
+  )
+)
+
+;; Local time poll
+(defpoll time_poll
+  :interval "1s"
+  'date +%H:%M'
+)
+
+;; Local date poll
+(defpoll date_poll
+  :interval "60s"
+  'date +%m/%d/%Y'
+)
+
+;; Number of updates available to yay
+(defpoll update_count
+  :interval "60s"
+  :initial "0"
+  "expr $(checkupdates | wc -l) + $(yay -Qua | wc -l)"
+)
