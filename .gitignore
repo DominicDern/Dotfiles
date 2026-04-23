@@ -142,3 +142,5 @@ welcome_news_latest_date_file
 welcome.conf
 
 xdg-terminals.list
+
+htop/
