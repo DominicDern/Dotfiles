@@ -10,6 +10,7 @@
   "margin-right": 10,
 
   "modules-left": [
+    "custom/updates",
     "custom/window",
   ],
   "modules-center": [
@@ -208,9 +209,18 @@
     "tooltip": false,
     "on-click": "gnome-system-monitor &"
   },
+  "custom/updates": {
+    "exec": "yay -Qu 2>/dev/null | wc -l | tr -d ' '",
+    "interval": 3600,
+    "signal": 8,
+    "tooltip": false,
+    "format": " {}",
+    "exec-if": "yay -Qu 2>/dev/null | grep -q ."
+  },
   "custom/window": {
     "exec": "hyprctl activewindow -j | jq -r '.class // empty'",
     "interval": 1,
     "tooltip": false
   },
+
 }

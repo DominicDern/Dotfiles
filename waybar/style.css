@@ -4,6 +4,7 @@ window#waybar {
 
 /* Pill shape */
 #custom-window,
+#custom-updates,
 #workspaces,
 #idle_inhibitor,
 #pulseaudio,
@@ -15,6 +16,10 @@ window#waybar {
   border-radius: 20px;
   padding: 0px 10px;
   font-family: "CaskaydiaCove Nerd Font Mono";
+}
+
+#custom-updates {
+  padding: 0px 8px 0px 0px;
 }
 
 #idle_inhibitor,
