@@ -1,0 +1,87 @@
+window#waybar {
+  background-color: transparent;
+}
+
+
+/* Pill shape */
+#window,
+#workspaces,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#hardware,
+#clock {
+  background-color: rgba(46, 52, 64, 0.5);
+  border-radius: 20px;
+  padding: 0px 10px;
+  font-family: "CaskaydiaCove Nerd Font Mono";
+}
+
+#workspaces {
+  padding: 0px 0px;
+}
+
+#idle_inhibitor,
+#power-profiles-daemon,
+#hardware {
+  padding: 0px 15px;
+}
+
+#workspaces button {
+  border-radius: 150px;
+  background:alpha(#88c0d0,0.5);
+  padding:0px 5px 0px 5px;
+  margin:5px 2px 5px 2px;
+  transition: all 0.3s ease-in-out;
+  min-width: 9px;
+}
+
+#workspaces button.active {
+  /* padding: 0px 15px; */
+  background:alpha(#c97980,0.5);
+  border: 1px solid transparent;
+  border-radius: 150px;
+  transition: all 0.3s ease-in-out;
+  min-width: 40px;
+}
+
+#workspaces button.active:hover {
+  /* padding: 0px 15px; */
+  background:alpha(#c97980,0.5);
+  border: 1px solid transparent;
+  border-radius: 150px;
+  transition: all 0.3s ease-in-out;
+  min-width: 40px;
+}
+
+#workspaces button:hover {
+  background:alpha(#88c0d0,0.5);
+  border: 1px solid transparent;
+  min-width: 20px;
+}
+
+#workspaces button:first-child {
+  margin-left: 5px;
+}
+
+#workspaces button:last-child {
+  margin-right: 5px;
+}
+
+#idle_inhibitor {
+  background: alpha(#c97980, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+#idle_inhibitor.activated {
+  background: alpha(#AF7FFF, 0.5);
+}
+
+#hardware {
+  background: alpha(#91EAFF, 0.5);
+}
+
+#pulseaudio {
+  background: alpha(#eabea8, 0.5);
+}

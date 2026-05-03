@@ -10,9 +10,8 @@ while [ -z "$(hyprctl monitors -j | jq -r '.[] | .name')" ]; do
 done
 
 # Extra cushion for the compositor to finish internal setup
-sleep 1
+# sleep 1
 
 # Launch your bars
 waybar -c ~/.config/waybar/bar-one.jsonc &
 waybar -c ~/.config/waybar/bar-two.jsonc &
-
