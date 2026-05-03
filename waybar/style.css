@@ -18,14 +18,15 @@ window#waybar {
   font-family: "CaskaydiaCove Nerd Font Mono";
 }
 
-#workspaces {
-  padding: 0px 0px;
-}
-
 #idle_inhibitor,
 #power-profiles-daemon,
 #hardware {
   padding: 0px 15px;
+}
+
+#workspaces {
+  padding: 0px 0px;
+  /* min-width: 175px; */
 }
 
 #workspaces button {
