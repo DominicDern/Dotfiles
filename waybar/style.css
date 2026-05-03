@@ -2,9 +2,8 @@ window#waybar {
   background-color: transparent;
 }
 
-
 /* Pill shape */
-#window,
+#custom-window,
 #workspaces,
 #idle_inhibitor,
 #pulseaudio,
@@ -26,7 +25,6 @@ window#waybar {
 
 #workspaces {
   padding: 0px 0px;
-  /* min-width: 175px; */
 }
 
 #workspaces button {
@@ -39,7 +37,6 @@ window#waybar {
 }
 
 #workspaces button.active {
-  /* padding: 0px 15px; */
   background:alpha(#c97980,0.5);
   border: 1px solid transparent;
   border-radius: 150px;
@@ -48,7 +45,6 @@ window#waybar {
 }
 
 #workspaces button.active:hover {
-  /* padding: 0px 15px; */
   background:alpha(#c97980,0.5);
   border: 1px solid transparent;
   border-radius: 150px;

@@ -10,12 +10,13 @@
   "margin-right": 10,
 
   "modules-left": [
-    "hyprland/window",
+    "custom/window",
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "idle_inhibitor",
     // "power-profiles-daemon",
     // "network",
     "group/hardware",
@@ -50,7 +51,11 @@
     },
   },
   "hyprland/window": {
-    "format": "{class}", 
+    "format": "{class}",
+    "empty-class": "empty",
+    "rewrite": {
+      "^$": ""
+    },
   },
   "keyboard-state": {
     "numlock": true,
@@ -202,5 +207,10 @@
     "interval": "once",
     "tooltip": false,
     "on-click": "gnome-system-monitor &"
+  },
+  "custom/window": {
+    "exec": "hyprctl activewindow -j | jq -r '.class // empty'",
+    "interval": 1,
+    "tooltip": false
   },
 }

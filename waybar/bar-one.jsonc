@@ -11,7 +11,7 @@
 
 
   "modules-left": [
-    "hyprland/window",
+    "custom/window",
   ],
   "modules-center": [
     "hyprland/workspaces"
@@ -52,7 +52,11 @@
     },
   },
   "hyprland/window": {
-    "format": "{class}", 
+    "format": "{class}",
+    "empty-class": "empty",
+    "rewrite": {
+      "^$": ""
+    },
   },
   "keyboard-state": {
     "numlock": true,
@@ -204,5 +208,10 @@
     "interval": "once",
     "tooltip": false,
     "on-click": "gnome-system-monitor &"
+  },
+  "custom/window": {
+    "exec": "hyprctl activewindow -j | jq -r '.class // empty'",
+    "interval": 1,
+    "tooltip": false
   },
 }
