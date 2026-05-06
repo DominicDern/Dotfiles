@@ -3,9 +3,12 @@ window#waybar {
 }
 
 /* Pill shape */
+#custom-weather,
+#custom-spotify,
 #custom-window,
 #custom-updates,
 #workspaces,
+#cava,
 #idle_inhibitor,
 #pulseaudio,
 #network,
@@ -19,7 +22,9 @@ window#waybar {
 }
 
 #custom-updates {
-  padding: 0px 8px 0px 0px;
+  padding: 0px 8px 0px 9px;
+  background-color: rgba(170, 226, 197, 0.5);
+  min-width: 23px;
 }
 
 #idle_inhibitor,

@@ -11,6 +11,8 @@
 
 
   "modules-left": [
+    "custom/weather",
+    "custom/spotify",
     "custom/updates",
     "custom/window",
   ],
@@ -18,6 +20,7 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "cava",
     "idle_inhibitor",
     // "power-profiles-daemon",
     // "network",
@@ -68,42 +71,6 @@
       "unlocked": ""
     }
   },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "hyprland/scratchpad": {
-    "format": "{icon} {count}",
-    "show-empty": false,
-    "format-icons": ["", ""],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
-  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -141,29 +108,6 @@
     "format": "{temperatureC}°C {icon}",
     "format-icons": ["󰉬", "", "󰉪"],
     "on-click": "gnome-system-monitor &"
-  },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
-  },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰃨",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -210,17 +154,47 @@
     "tooltip": false,
     "on-click": "gnome-system-monitor &"
   },
+  "custom/spotify": {
+    "format": " {}",
+    "exec": "~/.config/waybar/scripts/spotify_scroll.sh",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous"
+  },
   "custom/updates": {
     "exec": "yay -Qu 2>/dev/null | wc -l | tr -d ' '",
     "interval": 3600,
     "signal": 8,
     "tooltip": false,
-    "format": " {}",
-    "exec-if": "yay -Qu 2>/dev/null | grep -q ."
+    "format": "{} 󰏖",
+    "exec-if": "yay -Qu 2>/dev/null | grep -q .",
+    "on-click": "kitty yay -Syu &",
   },
   "custom/window": {
     "exec": "hyprctl activewindow -j | jq -r '.class // empty'",
     "interval": 1,
     "tooltip": false
+  },
+  "custom/weather": {
+    "exec": "curl -s 'wttr.in/?format=%c+%t'",
+    "interval": 1800,
+    "tooltip": false
+  },
+  "cava": {
+    "framerate": 60,
+    "autosens": 1,
+    "bars": 12,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse", // or "pipewire" if you use it
+    "source": "auto",
+    "bar_delimiter": 0,
+    "monstercat": true,
+    "waves": true,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons" : [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "hide_on_silence": true,
+    "sleep_timer": 1,
   },
 }

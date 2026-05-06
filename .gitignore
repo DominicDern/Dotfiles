@@ -144,3 +144,19 @@ xdg-terminals.list
 htop/
 
 GIMP/
+
+fastfetch/
+
+kdenliverc
+
+totem/
+
+systemd/
+
+mpd/log
+
+mpd/database
+
+mpd/state
+
+mpd/sticker.sql

@@ -10,14 +10,14 @@
   "margin-right": 10,
 
   "modules-left": [
-    "custom/updates",
+    // "custom/updates",
     "custom/window",
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "idle_inhibitor",
+    // "idle_inhibitor",
     // "power-profiles-daemon",
     // "network",
     "group/hardware",
