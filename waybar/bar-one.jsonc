@@ -181,6 +181,7 @@
     "tooltip": false
   },
   "cava": {
+    "cava_config": "/home/dominic/.config/cava/waybarconfig",
     "framerate": 60,
     "autosens": 1,
     "bars": 12,

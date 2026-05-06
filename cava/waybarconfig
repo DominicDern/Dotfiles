@@ -25,7 +25,7 @@ autosens = 1
 
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
-; bars = 12
+bars = 12
 ; bar_width = 2
 ; bar_spacing = 1
 # bar_height is only used for output in "noritake" format
@@ -88,8 +88,8 @@ autosens = 1
 # For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'.
 # README.md contains further information on how to setup CAVA for JACK.
 #
-method = pulse
-source = auto
+; method = pulse
+; source = auto
 
 ; method = pipewire
 ; source = auto
@@ -239,6 +239,11 @@ source = auto
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
 ; waveform = 0
 
+method = raw
+ray_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7
+
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
@@ -300,7 +305,7 @@ source = auto
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
 monstercat = 1
-; waves = 2
+waves = 1
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
